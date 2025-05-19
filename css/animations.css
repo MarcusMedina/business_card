@@ -53,17 +53,52 @@
   }
 }
 
+@keyframes avatar-weird-transform {
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.2) rotate(10deg); }
+  40%  { transform: scale(0.8) rotate(-10deg); }
+  60%  { transform: scale(1.3) rotate(15deg); }
+  80%  { transform: scale(0.9) rotate(-15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes avatar-weird-filter {
+  0%   { filter: none; }
+  20%  { filter: hue-rotate(90deg) blur(1px); }
+  40%  { filter: hue-rotate(180deg) blur(2px); }
+  60%  { filter: hue-rotate(270deg) blur(1px); }
+  80%  { filter: hue-rotate(360deg) blur(0); }
+  100% { filter: none; }
+}
+
 .slideIn {
   animation: slideIn 0.5s ease forwards;
 }
 
 .blinking-cursor {
   animation: blink 1s step-end infinite;
-  font-family: var(--font-mono);
+  display: inline-block;
+  width: 0.7em;
+  height: 1.1em;
+  background: var(--color-text-primary);
+  margin-left: 2px;
+  vertical-align: bottom;
+  border-radius: 2px;
+  font-family: inherit;
+  color: transparent;
+  line-height: 1;
+  text-shadow: none;
 }
 
 .role-text {
   display: inline-block;
   min-width: 1ch;
   font-family: var(--font-mono);
+}
+
+.avatar-img.weird {
+  animation: avatar-weird-transform 1.2s cubic-bezier(.68,-0.55,.27,1.55),
+             avatar-weird-filter 1.2s linear;
+  border: 4px solid red !important;
+  box-shadow: 0 0 20px 10px yellow !important;
 }

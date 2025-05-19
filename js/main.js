@@ -20,21 +20,77 @@ function initThemeToggle() {
   });
 }
 
+let loadedRoles = null;
+
+async function loadContactInfo() {
+  try {
+    const response = await fetch("contact.json");
+    const data = await response.json();
+
+    // Namn
+    const nameEl = document.querySelector(".name");
+    if (nameEl) nameEl.textContent = data.name;
+
+    // Titel
+    const titleEl = document.querySelector(".role-text");
+    if (titleEl) titleEl.textContent = data.title;
+
+    // Avatar
+    const avatarEl = document.querySelector(".avatar-img");
+    if (avatarEl) avatarEl.src = data.avatar;
+
+    // E-post
+    const emailLink = document.querySelector(".contact-item a");
+    if (emailLink) {
+      emailLink.href = `mailto:${data.email}`;
+      emailLink.textContent = data.email;
+    }
+
+    // Länkar
+    const linksList = document.querySelector(".links-list");
+    if (linksList && Array.isArray(data.links)) {
+      linksList.innerHTML = data.links
+        .map(
+          (link) => `
+        <li class="link-item">
+          <a href="${link.href}" target="_blank" rel="noopener noreferrer">
+            <i class="${link.icon}"></i>
+            <span>${link.text}</span>
+          </a>
+        </li>
+      `
+        )
+        .join("");
+    }
+
+    // Roller (för type-effekten)
+    if (Array.isArray(data.roles)) {
+      loadedRoles = data.roles;
+    }
+
+    // Starta avatar-effekten EFTER att avatar är laddad
+    startWeirdAvatarEffect();
+  } catch (err) {
+    console.error("Could not load contact.json", err);
+  }
+}
+
 // Role text animation
 function initRoleAnimation() {
   const roleElement = document.querySelector(".role-text");
-  const roles = [
+  // Använd roller från JSON om de finns, annars fallback
+  const roles = loadedRoles || [
     { text: "Teacher", typo: null },
     { text: "Coder", typo: "Codr" },
-    { text: "AI Art Scribbler", typo: null },
+    { text: "AI Art Scribbler", typo: "AI Art Scribler" },
     { text: "Multilingual", typo: "Multilingul" },
-    { text: "Philosophical", typo: null },
-    { text: "Chaotic", typo: null },
+    { text: "Philosophical", typo: "Philosphical" },
+    { text: "Chaotic", typo: "Chatic" },
     { text: "Geekish", typo: "Geeksh" },
-    { text: "Swifty", typo: null },
-    { text: "Reiki Master", typo: null },
+    { text: "Swifty", typo: "Swify" },
+    { text: "Reiki Master", typo: "Reiki Mastre" },
     { text: "Cat Lover", typo: "Cat Luvr" },
-    { text: "Star Wars Geek", typo: null },
+    { text: "Star Wars Geek", typo: "Star Wars Gek" },
   ];
 
   let currentIndex = 0;
@@ -85,8 +141,9 @@ function initRoleAnimation() {
     isTyping = true;
 
     const role = roles[currentIndex];
+    const useTypo = role.typo && Math.random() > 0.75;
 
-    if (role.typo) {
+    if (useTypo) {
       // Type the typo version
       await typeText(role.typo, 150);
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -113,9 +170,24 @@ function initRoleAnimation() {
   updateRole();
 }
 
+function startWeirdAvatarEffect() {
+  const avatar = document.querySelector(".avatar-img");
+  if (!avatar) return;
+
+  setInterval(() => {
+    if (Math.random() > 0.8) {
+      avatar.classList.add("weird");
+      // För felsökning
+      console.log("Avatar goes weird!");
+      setTimeout(() => avatar.classList.remove("weird"), 1200);
+    }
+  }, 4000);
+}
+
 // Initialize when DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   initThemeToggle();
+  await loadContactInfo();
   initRoleAnimation();
   animateElements();
 
@@ -126,57 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ) {
     document.body.setAttribute("data-theme", "dark");
     document.getElementById("theme-switch").checked = true;
-  }
-
-  // Dynamisk rendering av länkar
-  const links = [
-    {
-      href: "https://www.linkedin.com/in/marcusmedina/",
-      icon: "fab fa-linkedin",
-      text: "LinkedIn",
-    },
-    {
-      href: "https://github.com/marcusjobb",
-      icon: "fab fa-github-alt",
-      text: "Work GitHub",
-    },
-    {
-      href: "http://marcusmedina.pro",
-      icon: "fas fa-globe",
-      text: "Website",
-    },
-    {
-      href: "https://github.com/marcusMedina/",
-      icon: "fab fa-github",
-      text: "Personal GitHub",
-    },
-    {
-      href: "https://www.instagram.com/amazingmarcus/",
-      icon: "fab fa-instagram",
-      text: "Instagram",
-    },
-    {
-      href: "https://www.google.com/search?q=%22Marcus+Medina%22+%22M%C3%B6lndal%22",
-      icon: "fab fa-google",
-      text: "Google Me",
-    },
-  ];
-
-  // Rendera länkar
-  const linksList = document.querySelector(".links-list");
-  if (linksList) {
-    linksList.innerHTML = links
-      .map(
-        (link) => `
-      <li class="link-item">
-        <a href="${link.href}" target="_blank" rel="noopener noreferrer">
-          <i class="${link.icon}"></i>
-          <span>${link.text}</span>
-        </a>
-      </li>
-    `
-      )
-      .join("");
   }
 });
 

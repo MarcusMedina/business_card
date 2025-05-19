@@ -1,0 +1,52 @@
+{
+  "name": "Marcus Medina",
+  "title": "Teacher",
+  "email": "Marcus.medina-ramirez@molndal.se",
+  "avatar": "familyguyed-myself.png",
+  "roles": [
+    { "text": "Teacher", "typo": null },
+    { "text": "Coder", "typo": "Codr" },
+    { "text": "AI Art Scribbler", "typo": "AI Art Scribler" },
+    { "text": "Multilingual", "typo": "Multilingul" },
+    { "text": "Philosophical", "typo": "Philosphical" },
+    { "text": "Chaotic", "typo": "Chatic" },
+    { "text": "Geekish", "typo": "Geeksh" },
+    { "text": "Swifty", "typo": "Swify" },
+    { "text": "Reiki Master", "typo": "Reiki Mastre" },
+    { "text": "Cat Lover", "typo": "Cat Luvr" },
+    { "text": "Star Wars Geek", "typo": "Star Wars Gek" },
+    { "text": "Horror Movie fan", "typo": "Horror Move fan" }
+  ],
+  "links": [
+    {
+      "href": "https://www.linkedin.com/in/marcusmedina/",
+      "icon": "fab fa-linkedin",
+      "text": "LinkedIn"
+    },
+    {
+      "href": "https://github.com/marcusjobb",
+      "icon": "fab fa-github-alt",
+      "text": "Work GitHub"
+    },
+    {
+      "href": "http://marcusmedina.pro",
+      "icon": "fas fa-globe",
+      "text": "Website"
+    },
+    {
+      "href": "https://github.com/marcusMedina/",
+      "icon": "fab fa-github",
+      "text": "Personal GitHub"
+    },
+    {
+      "href": "https://www.instagram.com/amazingmarcus/",
+      "icon": "fab fa-instagram",
+      "text": "Instagram"
+    },
+    {
+      "href": "https://www.google.com/search?q=%22Marcus+Medina%22+%22M%C3%B6lndal%22",
+      "icon": "fab fa-google",
+      "text": "Google Me"
+    }
+  ]
+}
