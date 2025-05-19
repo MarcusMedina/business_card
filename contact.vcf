@@ -1,8 +1,8 @@
 BEGIN:VCARD
-VERSION:3.0
-FN:Marcus Ackre Medina
-N:Ackre Medina;Marcus;;;
-ORG:Yrkeshögskolan Campus Mölndal
-TITLE:Teacher
+VERSION:4.0
+FN;CHARSET=UTF-8:Marcus Ackre Medina
+N;CHARSET=UTF-8:Ackre Medina;Marcus;;;
+ORG;CHARSET=UTF-8:Yrkeshögskolan Campus Mölndal
+TITLE;CHARSET=UTF-8:Teacher
 EMAIL;TYPE=INTERNET;TYPE=WORK:marcus.medina-ramirez@molndal.se
 END:VCARD
