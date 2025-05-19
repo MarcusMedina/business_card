@@ -39,13 +39,6 @@ async function loadContactInfo() {
     const avatarEl = document.querySelector(".avatar-img");
     if (avatarEl) avatarEl.src = data.avatar;
 
-    // E-post
-    const emailLink = document.querySelector(".contact-item a");
-    if (emailLink) {
-      emailLink.href = `mailto:${data.email}`;
-      emailLink.textContent = data.email;
-    }
-
     // Länkar
     const linksList = document.querySelector(".links-list");
     if (linksList && Array.isArray(data.links)) {

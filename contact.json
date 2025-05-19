@@ -1,5 +1,5 @@
 {
-  "name": "Marcus Medina",
+  "name": "Marcus Ackre Medina",
   "title": "Teacher",
   "email": "Marcus.medina-ramirez@molndal.se",
   "avatar": "familyguyed-myself.png",
@@ -24,14 +24,14 @@
       "text": "LinkedIn"
     },
     {
+      "href": "https://lovorda.com/me/marcusmedina",
+      "icon": "fas fa-handshake",
+      "text": "Lovorda"
+    },
+    {
       "href": "https://github.com/marcusjobb",
       "icon": "fab fa-github-alt",
       "text": "Work GitHub"
-    },
-    {
-      "href": "http://marcusmedina.pro",
-      "icon": "fas fa-globe",
-      "text": "Website"
     },
     {
       "href": "https://github.com/marcusMedina/",
@@ -39,9 +39,19 @@
       "text": "Personal GitHub"
     },
     {
+      "href": "http://marcusmedina.pro",
+      "icon": "fas fa-globe",
+      "text": "Website"
+    },
+    {
       "href": "https://www.instagram.com/amazingmarcus/",
       "icon": "fab fa-instagram",
       "text": "Instagram"
+    },
+    {
+      "href": "https://www.molndal.se/campus-molndal/arkiv/nyheter/nyheter/2022-08-26-larare-som-engagerar-sig.html",
+      "icon": "fas fa-newspaper",
+      "text": "Article about me"
     },
     {
       "href": "https://www.google.com/search?q=%22Marcus+Medina%22+%22M%C3%B6lndal%22",
