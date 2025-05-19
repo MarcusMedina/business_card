@@ -1,0 +1,305 @@
+/* Main Styles CSS */
+body {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  padding: var(--spacing-sm);
+  position: relative;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 40, 40, 0.85); /* Samma grå som kortet */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes floating-shadow {
+  0% {
+    box-shadow: 0 20px 60px 0 rgba(0,0,0,0.28), 0 4px 16px 0 rgba(0,0,0,0.12);
+  }
+  25% {
+    box-shadow: 10px 28px 80px 0 rgba(0,0,0,0.22), 0 8px 24px 0 rgba(0,0,0,0.10);
+  }
+  50% {
+    box-shadow: 0 36px 100px 0 rgba(0,0,0,0.30), 0 12px 32px 0 rgba(0,0,0,0.14);
+  }
+  75% {
+    box-shadow: -10px 28px 80px 0 rgba(0,0,0,0.22), 0 8px 24px 0 rgba(0,0,0,0.10);
+  }
+  100% {
+    box-shadow: 0 20px 60px 0 rgba(0,0,0,0.28), 0 4px 16px 0 rgba(0,0,0,0.12);
+  }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255,255,255,0.5); /* Ännu mer transparent */
+  overflow: hidden;
+  background-image: var(--marble-texture), url('https://www.transparenttextures.com/patterns/marble.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: var(--radius-md);
+  border: 6px solid #fff;
+  animation: floating-shadow 4s ease-in-out infinite;
+}
+
+[data-theme="dark"] .card {
+  background-image: var(--marble-texture-dark);
+  border-color: #181a1b;
+}
+
+/* Card Header */
+.card-header {
+  padding: var(--spacing-lg);
+  text-align: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .card-header {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+}
+
+.theme-switch {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 50px;
+  height: 26px;
+  background-color: var(--color-bg-primary);
+  position: relative;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  padding: 0 var(--spacing-xs);
+}
+
+.theme-switch-label .fa-moon {
+  color: #f97316;
+}
+
+.theme-switch-label .fa-sun {
+  color: #eab308;
+}
+
+.theme-switch-label .ball {
+  background-color: var(--color-accent-primary);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+}
+
+.theme-switch:checked + .theme-switch-label .ball {
+  transform: translateX(24px);
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Card Content */
+.card-content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  height: calc(100% - 250px);
+}
+
+[data-theme="dark"] .card-content {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.section-title i {
+  color: var(--color-accent-primary);
+}
+
+.contact-section, .links-section {
+  animation: slideIn 0.5s ease forwards;
+  position: relative;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .contact-item {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.contact-item i {
+  color: var(--color-accent-primary);
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}
+
+.contact-item a {
+  flex: 1;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  word-break: break-all;
+}
+
+.links-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.link-item {
+  position: relative;
+}
+
+.link-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  height: 100%;
+}
+
+[data-theme="dark"] .link-item a {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.link-item i {
+  font-size: 1.5rem;
+  color: var(--color-accent-primary);
+}
+
+.link-item span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* Media Queries */
+@media (max-width: 380px) {
+  .links-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: var(--spacing-xl);
+  }
+
+  .container {
+    max-width: 480px;
+    /* height: auto; */
+    /* aspect-ratio: 9/16; */
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+}

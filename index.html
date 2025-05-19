@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcus Medina | Digital Card</title>
+    <meta name="description" content="Digital business card for Marcus Medina. Connect via LinkedIn, GitHub, Instagram, Teacher, coder, creative mind." />
+    <meta name="keywords" content="Marcus Medina, business card, teacher, coder, LinkedIn, GitHub, Instagram, contact, digital card" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: 1000;
+        background: #fff;
+        color: #222;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .skip-link:focus {
+        left: 16px;
+        top: 16px;
+        width: auto;
+        height: auto;
+        outline: 2px solid #0078d7;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content" class="container" role="main" aria-label="Digital business card for Marcus Medina" tabindex="-1">
+      <div class="card" aria-labelledby="profile-name">
+        <div class="card-front">
+          <header class="card-header" aria-label="Profile and theme switcher">
+            <div class="theme-toggle" aria-label="Toggle light and dark mode">
+              <input type="checkbox" id="theme-switch" class="theme-switch" aria-label="Theme switch">
+              <label for="theme-switch" class="theme-switch-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+              </label>
+            </div>
+            <div class="profile">
+              <div class="avatar">
+                <img src="familyguyed-myself.png" alt="Cartoon avatar of Marcus Medina" class="avatar-img">
+              </div>
+              <h1 class="name" id="profile-name">Marcus Medina</h1>
+              <h2 class="title"><span class="role-text">Teacher</span> <span class="blinking-cursor">|</span></h2>
+            </div>
+          </header>
+
+          <div class="card-content">
+            <section class="contact-section" aria-label="Contact information">
+              <h3 class="section-title"><i class="fas fa-id-card"></i> Contact</h3>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:Marcus.medina-ramirez@molndal.se" aria-label="Send email to Marcus Medina">Marcus.medina-ramirez@molndal.se</a>
+              </div>
+            </section>
+
+            <section class="links-section" aria-label="Connect links">
+              <h3 class="section-title"><i class="fas fa-link"></i> Connect</h3>
+              <ul class="links-list" aria-label="Social and professional links">
+                <!-- Länkarna renderas av JavaScript -->
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
